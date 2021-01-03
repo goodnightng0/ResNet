@@ -4,6 +4,7 @@ Pytorch implementation of [“Identity Mappings in Deep Residual Networks”](ht
 Implement a classifier for the CIFAR-10 dataset with ResNet
 
 #### Network Architecture
+The Network consists of a 3\*3 conv, 4 stages(each having a set of blocks as shown in the following figures), average pooling and a fully connected layer.
 <div>
   <img height="230" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage1.PNG">
   <img height="230" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage2.PNG">
