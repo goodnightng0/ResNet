@@ -7,7 +7,7 @@ Implement a classifier for the CIFAR-10 dataset with ResNet
 <div>
   <img height="190" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage1.PNG">
   <img height="190" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage2.PNG">
-  <img height="220" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage34.PNG">
+  <img height="210" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage34.PNG">
 </div>
 
 - With "skip connections", this architecture improves the ability to model identity function
