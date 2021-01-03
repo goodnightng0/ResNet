@@ -19,3 +19,6 @@ Details for the rest of the architecture can be found in the [decription file](.
 Through trial and error of the [parameters](./params), change and find the best **batch size** and **learning rate**
 
 Best accuracy can be found when batch size is 8 and learning rate is 0.005 with an overall accuracy of 78.91%
+<div>
+  <img height="300" src="https://github.com/goodnightng0/ResNet/blob/main/params/b%3D8%20l%3D0.005.PNG">
+  </div>
