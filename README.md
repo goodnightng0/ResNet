@@ -1,5 +1,6 @@
 # ResNet
 Pytorch implementation of [“Identity Mappings in Deep Residual Networks”](https://arxiv.org/pdf/1603.05027.pdf)
+</br>
 Implement a classifier for the CIFAR-10 dataset with ResNet
 
 #### Network Architecture
@@ -7,7 +8,8 @@ Implement a classifier for the CIFAR-10 dataset with ResNet
   <img height="220" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage1.PNG">
   <img height="220" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage2.PNG">
   <img height="220" src="https://github.com/goodnightng0/ResNet/blob/main/architecture/stage34.PNG">
- </div>
+</div>
+
 - With "skip connections", this architecture improves the ability to model identity function
 - That is, with all convolutional weights set to 0, the block can refer to the model identity
 
