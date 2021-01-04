@@ -10,10 +10,6 @@ import numpy as np
 import time
 
 
-########################################
-# You can define whatever classes if needed
-########################################
-
 class ResidualBlock1(nn.Module):
     def __init__(self, in_channels, out_channels):
         super().__init__()
@@ -66,14 +62,6 @@ class IdentityResNet(nn.Module):
         self.stage3 = self.init_stage3()
         self.stage4 = self.init_stage4()
 
-    ########################################
-    # Implement the network
-    # You can declare whatever variables
-    ########################################
-
-    ########################################
-    # You can define whatever methods
-    ########################################
     def init_stage1(self):
         modules = []
         a=ResidualBlock1(64,64)
@@ -115,10 +103,6 @@ class IdentityResNet(nn.Module):
         return sequential
 
     def forward(self, x):
-        ########################################
-        # Implement the network
-        # You can declare or define whatever variables or methods
-        ########################################
         x = self.conv(x)
         x = self.stage1(x)
         x = self.stage2(x)
@@ -129,27 +113,14 @@ class IdentityResNet(nn.Module):
         out = self.fc(x)
         return out
 
-
-########################################
-# Q1. set device
-# First, check availability of GPU.
-# If available, set dev to "cuda:0";
-# otherwise set dev to "cpu"
-########################################
 if torch.cuda.is_available():
     dev=torch.device('cuda:0')
 else:
     dev=torch.device('cpu')
 print('current device: ', dev)
 
-########################################
 # data preparation: CIFAR10
-########################################
-
-########################################
-# Q2. set batch size
 # set batch size for training data
-########################################
 batch_size = 8
 
 # preprocessing
@@ -175,20 +146,11 @@ classes = ('plane', 'car', 'bird', 'cat',
 net = IdentityResNet(nblk_stage1=2, nblk_stage2=2,
                      nblk_stage3=2, nblk_stage4=2)
 
-########################################
-# Q3. load model to GPU
-# Complete below to load model to GPU
-########################################
 net.to(dev)
 
 # set loss function
 criterion = nn.CrossEntropyLoss()
 
-########################################
-# Q4. optimizer
-# Complete below to use SGD with momentum (alpha= 0.9)
-# set proper learning rate
-########################################
 optimizer = torch.optim.SGD(net.parameters(),lr=0.005,momentum=0.9)
 
 # start training
@@ -201,28 +163,16 @@ for epoch in range(5):  # loop over the dataset multiple times
         # get the inputs; data is a list of [inputs, labels]
         inputs, labels = data[0].to(dev), data[1].to(dev)
 
-        ########################################
-        # Q5. make sure gradients are zero!
         # zero the parameter gradients
-        ########################################
         optimizer.zero_grad()
 
-        ########################################
-        # Q6. perform forward pass
-        ########################################
         outputs = net.forward(inputs)
 
         # set loss
         loss = criterion(outputs, labels)
 
-        ########################################
-        # Q7. perform backprop
-        ########################################
         loss.backward()
 
-        ########################################
-        # Q8. take a SGD step
-        ########################################
         optimizer.step()
 
         # print statistics
@@ -241,10 +191,6 @@ print('Finished Training')
 class_correct = list(0. for i in range(10))
 class_total = list(0. for i in range(10))
 
-########################################
-# Q9. complete below
-# when testing, computation is done without building graphs
-########################################
 with torch.no_grad():
     for data in testloader:
         images, labels = data[0].to(dev), data[1].to(dev)
